@@ -1,0 +1,46 @@
+option optimize_for = LITE_RUNTIME;
+
+/**
+ * 发牌
+ * S -> C
+ */
+message DealCard {
+  repeated int32 cards = 1;     // 发给该玩家的牌
+  repeated int32 extras = 2;    // 留给地主的底牌
+  required int32 cur = 3;       // 从谁开始抢地主
+  required int32 max_grade = 4; // 当前叫的最高分
+}
+
+
+/**
+ * 抢地主
+ * C <-> S
+ */
+message GrabLandlord {
+  required int32 grade = 1; // [0，3]: 不叫，1分，2分，3分
+  optional int32 cur = 2; // 轮到谁叫地主了
+}
+
+
+/**
+ * 抢地主结束
+ */
+message GrabLandlordOver {
+  required int32 who = 1;     // 谁是地主，同时该玩家出牌
+  required int32 grade = 2;   // 分数
+}
+
+
+/**
+ * 出牌
+ * C <-> S
+ */
+ message PlayCard {
+  repeated int32 cards = 1; // 出的牌，为空时表示不出
+  optional int32 who = 2; // 谁出的牌
+ }
+
+
+ /** 游戏结束 */
+ message GameOver {
+ }

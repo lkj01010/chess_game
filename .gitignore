@@ -1,0 +1,12 @@
+/vsprojects/chess_server/Debug
+/vsprojects/landlords_module/Debug
+/bin
+*.idb
+*.pdb
+*.ilk
+*.log
+*.tlog
+*.sdf
+*.obj
+*.lastbuildstate
+/tests/landlords/proj.win32/Debug.win32
